@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панели Администратор | ZEROHUB</title>
+    <link rel="stylesheet" href="admin-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Оинаи Воридшавӣ -->
+    <div id="login-screen" class="glass-card login-box">
+        <h2 class="aurora-text">Воридшавӣ ба Админка</h2>
+        <form id="login-form">
+            <div class="input-group">
+                <label><i class="fa-solid fa-envelope icon-v"></i> Почтаи электронӣ (Email):</label>
+                <input type="email" id="admin-email" placeholder="email@example.com" required>
+            </div>
+            <div class="input-group">
+                <label><i class="fa-solid fa-lock icon-v"></i> Парол:</label>
+                <input type="password" id="admin-password" placeholder="******" required>
+            </div>
+            <button type="submit" class="glow-btn"><i class="fa-solid fa-right-to-bracket"></i> Ворид шудан</button>
+        </form>
+    </div>
+
+    <!-- Панели Асосии Идоракунӣ -->
+    <div id="admin-panel" class="dashboard-container" style="display: none;">
+        
+        <header class="admin-header glass-card">
+            <h1 class="aurora-text"><i class="fa-solid fa-shield-halved"></i> ZEROHUB Admin</h1>
+            <button id="logout-btn" class="danger-btn"><i class="fa-solid fa-power-off"></i> Баромад</button>
+        </header>
+
+        <!-- Менюи Векторӣ байни 2 Саҳифа -->
+        <nav class="admin-nav">
+            <button class="nav-tab active" id="tab-add" onclick="switchTab('add')">
+                <i class="fa-solid fa-square-plus tab-icon"></i> Илова кардани барнома
+            </button>
+            <button class="nav-tab" id="tab-manage" onclick="switchTab('manage')">
+                <i class="fa-solid fa-list-check tab-icon"></i> Идоракунӣ ва Таҳрир
+            </button>
+        </nav>
+
+        <!-- САҲИФАИ 1: Формаи Иловакунӣ -->
+        <section id="section-add" class="tab-content glass-card">
+            <h2><i class="fa-solid fa-folder-plus"></i> Илова кардани барномаи нав</h2>
+            <form id="app-form">
+                <input type="hidden" id="app-id">
+
+                <div class="input-group">
+                    <label><i class="fa-solid fa-layer-group"></i> Бахшро интихоб кунед:</label>
+                    <select id="app-category" required>
+                        <option value="apps">Программы (Барномаҳо)</option>
+                        <option value="games">Игры (Бозиҳо)</option>
+                        <option value="moding">MODING (Худсохт)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fa-solid fa-pen-to-square"></i> Номи барнома / бозӣ:</label>
+                    <input type="text" id="app-title" placeholder="Масалан: ZEROHUB Downloader" required>
+                </div>
+
+                <!-- НОМИ ТАҲИЯГАР -->
+                <div class="input-group">
+                    <label><i class="fa-solid fa-user-gear"></i> Номи таҳиягар (Разработчик):</label>
+                    <input type="text" id="app-developer" placeholder="Масалан: ZEROHUB Team" required>
+                </div>
+
+                <!-- ССИЛКАИ ИКОНКА -->
+                <div class="input-group">
+                    <label><i class="fa-solid fa-image"></i> Ссилкаи Иконкаи барнома (URL):</label>
+                    <input type="url" id="app-icon-url" placeholder="https://example.com/icon.png" required>
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fa-solid fa-code-branch"></i> Версия:</label>
+                    <input type="text" id="app-version" placeholder="1.0.0" required>
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fa-solid fa-paper-plane"></i> Ссилкаи мустақим (Telegram File):</label>
+                    <input type="url" id="app-download-url" placeholder="https://t.me/..." required>
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fa-solid fa-play"></i> Коди Embed барои Трейлер (YouTube/Vimeo):</label>
+                    <textarea id="app-embed-video" placeholder='<iframe width="..." height="..." src="..."></iframe>'></textarea>
+                </div>
+
+                <!-- 4 ҶОЙИ СКРИНШОТҲОИ ИХТИЁРӢ -->
+                <div class="input-group">
+                    <label><i class="fa-solid fa-images"></i> Скриншотҳо (то 4 ссилкаи ихтиёрӣ):</label>
+                    <input type="url" id="app-shot-1" placeholder="Ссилкаи скриншоти 1" style="margin-bottom: 6px;">
+                    <input type="url" id="app-shot-2" placeholder="Ссилкаи скриншоти 2 (ихтиёрӣ)" style="margin-bottom: 6px;">
+                    <input type="url" id="app-shot-3" placeholder="Ссилкаи скриншоти 3 (ихтиёрӣ)" style="margin-bottom: 6px;">
+                    <input type="url" id="app-shot-4" placeholder="Ссилкаи скриншоти 4 (ихтиёрӣ)">
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fa-solid fa-file-lines"></i> Тавсиф (Описание):</label>
+                    <textarea id="app-description" rows="5" placeholder="Муфассал нависед..." required></textarea>
+                </div>
+
+                <button type="submit" class="glow-btn" id="save-btn"><i class="fa-solid fa-floppy-disk"></i> Сабт кардан</button>
+            </form>
+        </section>
+
+        <!-- САҲИФАИ 2: Идоракунӣ -->
+        <section id="section-manage" class="tab-content glass-card" style="display: none;">
+            <h2><i class="fa-solid fa-sliders"></i> Рӯйхати ҳамаи барномаҳо</h2>
+            
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="admin-search" placeholder="Ҷустуҷӯи барнома..." oninput="filterAdminApps()">
+            </div>
+
+            <div id="admin-apps-list" class="apps-list-container">
+                <!-- Барномаҳо тавассути JS бор мешаванд -->
+            </div>
+        </section>
+
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
