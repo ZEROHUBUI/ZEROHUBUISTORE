@@ -1,0 +1,13 @@
+User-agent: *
+# Манъ кардани индексатсияи панели админ
+Disallow: /admin/
+Disallow: /admin/admin.html
+Disallow: /admin/app.html
+
+# Иҷозат додан ба бахши клиент
+Allow: /client/
+Allow: /client/index.html
+Allow: /client/app.html
+
+# Нишон додани суроғаи sitemap
+Sitemap: https://zerohubui.github.io/ZEROHUBUISTORE/sitemap.xml
