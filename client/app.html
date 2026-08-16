@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZEROHUB Store | Описание</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="theme-all">
+
+    <!-- Шапка бо тугмаи "Баргаштан" ва "Забон" -->
+    <header class="top-header glass-card" style="display: flex; justify-style: space-between; align-items: center;">
+        <button class="real-btn" onclick="window.location.href='index.html'">
+            <i class="fa-solid fa-arrow-left"></i> <span id="back-txt">Назад</span>
+        </button>
+        <h1 class="logo-title" style="margin: 0; font-size: 15px;">ZEROHUB STORE</h1>
+        <button id="lang-btn-app" class="real-btn lang-toggle" onclick="toggleAppLanguage()">EN</button>
+    </header>
+
+    <main class="main-content" id="app-details-container">
+        <!-- Маълумоти барнома ва омори воқеӣ ( views / downloads ) тавассути app.js дар инҷо рендер мешавад -->
+        <div class="glass-card" style="text-align: center; padding: 20px;">
+            <i class="fa-solid fa-circle-notch fa-spin" style="font-size: 24px; color: #3b82f6;"></i>
+            <p style="color: #94a3b8; margin-top: 10px;">Загрузка данных...</p>
+        </div>
+    </main>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
