@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZEROHUB Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0b0f19">
+</head>
+<body class="theme-all">
+
+    <!-- Шапкаи Болоӣ -->
+    <header class="top-header glass-card">
+        <div class="brand-line">
+            <h1 class="logo-title"><i class="fa-solid fa-cube"></i> ZEROHUBUISTORE</h1>
+            <button id="lang-btn" class="real-btn lang-toggle" onclick="toggleLanguage()">EN</button>
+        </div>
+        <div class="search-box-full">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="user-search" placeholder="Поиск приложения или разработчика..." oninput="filterUserApps()">
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Блоки Трейлер (Танҳо дар Главный нишон дода мешавад) -->
+        <section id="hero-trailer-box" class="glass-card trailer-container">
+            <div id="trailer-iframe-wrapper">
+                <!-- Трейлери беҳтарин тавассути JS бор мешавад -->
+            </div>
+        </section>
+
+        <!-- Каталоги Барномаҳо -->
+        <div id="apps-grid" class="apps-grid">
+            <!-- Барномаҳо тавассути JS бор мешаванд -->
+        </div>
+    </main>
+
+    <!-- Менюи Навигатсияи Поёнӣ (Bottom Navigation) -->
+    <nav class="bottom-nav">
+        <button class="nav-btn active" data-cat="all" onclick="switchCategory('all', this)">
+            <i class="fa-solid fa-house"></i>
+            <span>Главный</span>
+        </button>
+        <button class="nav-btn" data-cat="apps" onclick="switchCategory('apps', this)">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <span>Софт</span>
+        </button>
+        <button class="nav-btn" data-cat="games" onclick="switchCategory('games', this)">
+            <i class="fa-solid fa-gamepad"></i>
+            <span>Игры</span>
+        </button>
+        <button class="nav-btn" data-cat="moding" onclick="switchCategory('moding', this)">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>Модинг</span>
+        </button>
+    </nav>
+
+    <script type="module" src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+</body>
+</html>
