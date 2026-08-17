@@ -154,7 +154,7 @@ function renderDetails() {
     `;
 }
 
-// Ҳисоби аниқи зеркашиҳо (+1) ҳангоми пахши тугма
+// Ҳисоби аниқи зеркашиҳо (+1) ва гузариш ба Боти Telegram
 window.handleDownload = async function(downloadUrl) {
     if (currentAppId) {
         try {
@@ -173,8 +173,11 @@ window.handleDownload = async function(downloadUrl) {
         }
     }
     
-    // Гузариш ба линки Telegram
-    window.open(downloadUrl, '_blank');
+    // Гузариш ба боти Telegram бо ID-и аниқи файл
+    const botUsername = "ZEROHUBUISTORE_BOT";
+    const telegramBotUrl = `https://t.me/${botUsername}?start=${currentAppId}`;
+    
+    window.open(telegramBotUrl, '_blank');
 };
 
 // Ивази забон дар саҳифаи муфассал
